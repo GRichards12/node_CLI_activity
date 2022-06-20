@@ -1,25 +1,19 @@
 const Movie = require("./utils");
-const input = process.argv;
-//process.argv grabs terminal input
+const yargs = require('yargs/yargs')
+const { hideBin } = require('yargs/helpers')
+const input = yargs(hideBin(process.argv)).argv
 console.log(input);
-const movies = [];
-movies.push(input[2]);
-//one way
-if(input[2] === "add"){
-    const movieObj = new Movie(input[3],input[4],input[5],input[6]);
-    movieObj.add();
-    console.log(movieObj);
-}
-else if(input[2] ==='remove'){
-    movieObj.remove();
-}
 
-//other way
-// if(input[2] === "add"){
-//     const movieObj1 = new moveBy(input[3],input[4]);
-//     movieObj1.add();
-//     const movieObj2 = new moveBy(input[5],input[6]);
-//     movieObj2.add();
-//     console.log(movieObj1);
-//     console.log(movieObj2);
-// }
+
+if(input.type === "add" && input.number === 1){
+        const movieObj = new Movie(input.title,input.actor,input.other);
+        movieObj.add();
+}
+else if(input.type ==="add" && input.number > 1){
+    const movieObj1 = new Movie(input.title1,input.actor1,input.other1)
+    const movieObj2 = new Movie(input.title2,input.actor2,input.other2)
+    const movieObj3 = new Movie(input.title3,input.actor3,input.other3)
+    movieObj1.add();
+    movieObj2.add();
+    movieObj3.add();
+}

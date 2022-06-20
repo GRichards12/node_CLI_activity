@@ -1,10 +1,9 @@
 const movieArr = [];
 class Movie{
-    constructor(title1,actor1 = "Not specified",title2,actor2 = "Not specified"){
-        this.title1 = title1;
-        this.actor1 = actor1;
-        this.title2=title2;
-        this.actor2=actor2;
+    constructor(title,actor = "Actor not specified",other="Other information not specified"){
+        this.title = title;
+        this.actor = actor;
+        this.other = other;
      }
     
      add() {
@@ -15,4 +14,4 @@ class Movie{
      remove() {
     movieArr.pop(indexOf());}}
     
-module.exports = Movie;
+module.exports = Movie,movieArr;
